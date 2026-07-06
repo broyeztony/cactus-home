@@ -250,18 +250,18 @@
 
   <script>
     const devices = [
-      { id: "coffee-machine", name: "Coffee Machine", icon: "☕" },
-      { id: "washing-machine", name: "Washing Machine", icon: "🧺" },
-      { id: "cooktop", name: "Cooktop", icon: "🔥" },
-      { id: "dishwasher", name: "Dishwasher", icon: "🍽️" },
-      { id: "oven", name: "Oven", icon: "🥘" },
-      { id: "microwave", name: "Microwave", icon: "📡" },
+      { file: "coffee_machine.mp4", name: "Coffee Machine", icon: "☕" },
+      { file: "washing_machine.mp4", name: "Washing Machine", icon: "🧺" },
+      { file: "cooktop.mp4", name: "Cooktop", icon: "🔥" },
+      { file: "dishwasher.mp4", name: "Dishwasher", icon: "🍽️" },
+      { file: "oven.mp4", name: "Oven", icon: "🥘" },
+      { file: "microwave.mp4", name: "Microwave", icon: "📡" },
     ];
 
     const grid = document.getElementById("device-grid");
 
     devices.forEach((device) => {
-      const src = `videos/${device.id}.mp4`;
+      const src = `videos/${device.file}`;
       const card = document.createElement("article");
       card.className = "device-card";
       card.innerHTML = `
