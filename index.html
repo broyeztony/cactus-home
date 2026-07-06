@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome guide for Cactus Home — appliance how-to videos for your stay.">
+  <title>Welcome to Cactus Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --surface: #ffffff;
+      --text: #2c2a26;
+      --text-muted: #6b6560;
+      --accent: #3d6b4f;
+      --accent-light: #e8f0eb;
+      --border: #e4ddd4;
+      --shadow: 0 8px 30px rgba(44, 42, 38, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: clamp(220px, 40vw, 420px);
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15) 0%,
+        rgba(0, 0, 0, 0.45) 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .hero-title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+
+    .welcome {
+      padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+      text-align: center;
+    }
+
+    .welcome h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .welcome p {
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .devices {
+      padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .device-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .device-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(44, 42, 38, 0.12);
+    }
+
+    .device-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem 0.75rem;
+    }
+
+    .device-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-light);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .device-header h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .video-wrapper {
+      position: relative;
+      background: #1a1a1a;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #1a1a1a;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .video-placeholder.hidden {
+      display: none;
+    }
+
+    .video-placeholder span:first-child {
+      font-size: 2rem;
+      opacity: 0.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="images/main.png" alt="Cactus Home — your vacation rental">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Welcome to Cactus Home</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome container">
+      <h2>We're glad you're here!</h2>
+      <p>
+        Make yourself at home. Below you'll find short video guides for the
+        appliances in the apartment — everything you need for a comfortable stay.
+        Tap play on any video to get started.
+      </p>
+    </section>
+
+    <section class="devices container" aria-labelledby="devices-heading">
+      <div class="section-header">
+        <h2 id="devices-heading">Appliance Guides</h2>
+        <p>Quick how-to videos for the kitchen and laundry</p>
+      </div>
+
+      <div class="device-grid" id="device-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Enjoy your stay at <strong>Cactus Home</strong> — we're here if you need anything.</p>
+  </footer>
+
+  <script>
+    const devices = [
+      { id: "coffee-machine", name: "Coffee Machine", icon: "☕" },
+      { id: "washing-machine", name: "Washing Machine", icon: "🧺" },
+      { id: "cooktop", name: "Cooktop", icon: "🔥" },
+      { id: "dishwasher", name: "Dishwasher", icon: "🍽️" },
+      { id: "oven", name: "Oven", icon: "🥘" },
+      { id: "microwave", name: "Microwave", icon: "📡" },
+    ];
+
+    const grid = document.getElementById("device-grid");
+
+    devices.forEach((device) => {
+      const src = `videos/${device.id}.mp4`;
+      const card = document.createElement("article");
+      card.className = "device-card";
+      card.innerHTML = `
+        <div class="device-header">
+          <div class="device-icon" aria-hidden="true">${device.icon}</div>
+          <h3>${device.name}</h3>
+        </div>
+        <div class="video-wrapper">
+          <video controls preload="metadata" playsinline aria-label="${device.name} usage guide">
+            <source src="${src}" type="video/mp4">
+          </video>
+          <div class="video-placeholder">
+            <span>▶</span>
+            <span>Video guide coming soon</span>
+          </div>
+        </div>
+      `;
+
+      const video = card.querySelector("video");
+      const placeholder = card.querySelector(".video-placeholder");
+
+      video.addEventListener("loadeddata", () => {
+        placeholder.classList.add("hidden");
+      });
+
+      video.addEventListener("error", () => {
+        video.style.display = "none";
+        placeholder.classList.remove("hidden");
+      });
+
+      video.addEventListener("canplay", () => {
+        placeholder.classList.add("hidden");
+        video.style.display = "block";
+      });
+
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
