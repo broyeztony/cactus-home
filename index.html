@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Welcome guide for Cactus Home — appliance how-to videos for your stay.">
+  <meta name="description" content="Welcome guide for Cactus Home — appliance how-to videos and local restaurant picks for your stay.">
   <title>Welcome to Cactus Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -202,6 +202,82 @@
       opacity: 0.5;
     }
 
+    .places {
+      padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .place-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .place-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .place-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(44, 42, 38, 0.12);
+    }
+
+    .place-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .place-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .place-card p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      flex-grow: 1;
+    }
+
+    .place-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: auto;
+    }
+
+    .place-link:hover {
+      text-decoration: underline;
+    }
+
+    .place-link::after {
+      content: "→";
+      transition: transform 0.2s ease;
+    }
+
+    .place-link:hover::after {
+      transform: translateX(3px);
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem 2.5rem;
@@ -229,8 +305,8 @@
       <h2>We're glad you're here!</h2>
       <p>
         Make yourself at home. Below you'll find short video guides for the
-        appliances in the apartment — everything you need for a comfortable stay.
-        Tap play on any video to get started.
+        appliances in the apartment, plus a few of our favorite spots nearby
+        for dining and drinks.
       </p>
     </section>
 
@@ -241,6 +317,50 @@
       </div>
 
       <div class="device-grid" id="device-grid"></div>
+    </section>
+
+    <section class="places container" aria-labelledby="places-heading">
+      <div class="section-header">
+        <h2 id="places-heading">Local Favorites</h2>
+        <p>Hand-picked restaurants and bars in the neighborhood</p>
+      </div>
+
+      <div class="place-grid">
+        <article class="place-card">
+          <span class="place-tag">Couscous</span>
+          <h3>Tipaza</h3>
+          <p>Authentic Berber cuisine in the 15th — couscous, tajines, and grilled meats in a warm, refined setting. Open 7 days a week.</p>
+          <a class="place-link" href="https://www.tipaza.fr/" target="_blank" rel="noopener noreferrer">Visit Tipaza</a>
+        </article>
+
+        <article class="place-card">
+          <span class="place-tag">Neighborhood</span>
+          <h3>Madame Charles</h3>
+          <p>A local favorite right in the neighborhood — great atmosphere and a perfect spot to discover the area like a regular.</p>
+          <a class="place-link" href="https://www.instagram.com/madamecharles15/" target="_blank" rel="noopener noreferrer">See on Instagram</a>
+        </article>
+
+        <article class="place-card">
+          <span class="place-tag">Breakfast &amp; Brunch</span>
+          <h3>Le Quinzerie</h3>
+          <p>Start the day generously with fresh, locally-sourced breakfast — or head to the rooftop for brunch with Eiffel Tower views.</p>
+          <a class="place-link" href="https://www.quinzeriehotel.fr/en/bars-food" target="_blank" rel="noopener noreferrer">Visit Le Quinzerie</a>
+        </article>
+
+        <article class="place-card">
+          <span class="place-tag">Wine Bar</span>
+          <h3>La Cave du Hérisson</h3>
+          <p>A cozy wine shop by day and cave à manger by night — natural and biodynamic wines, homemade dishes, and a relaxed vibe.</p>
+          <a class="place-link" href="https://lacaveduherisson.fr/" target="_blank" rel="noopener noreferrer">Visit La Cave du Hérisson</a>
+        </article>
+
+        <article class="place-card">
+          <span class="place-tag">Brasserie</span>
+          <h3>Le Café du Commerce</h3>
+          <p>Classic Parisian brasserie on rue du Commerce — homemade French cooking and estate wines, served continuously from morning to night.</p>
+          <a class="place-link" href="https://www.lecafeducommerce.com/" target="_blank" rel="noopener noreferrer">Visit Le Café du Commerce</a>
+        </article>
+      </div>
     </section>
   </main>
 
